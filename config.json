@@ -1,29 +1,47 @@
 {
   "site": {
     "name": "Dubicrack",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "tagline": "hub de enlaces"
   },
   "sites": [
     {
       "id": "youtube",
-      "file": "youtube.txt",
-      "label": "Canal de YouTube",
+      "label": "YouTube",
       "desc": "@DubicrackTK",
-      "page": "youtube.html",
+      "folder": "youtube",
       "external": "https://www.youtube.com/@DubicrackTK",
       "icon": "youtube",
-      "accent": "#ff4d4d"
+      "accent": "#ff4d4d",
+      "bio": "No hace falta ser perfecto para brillar. Amo la astronomía, los videojuegos y las amistades reales. 🌌 Solo un chico tratando de dejar huella.",
+      "contact": "dubicrack.suport@gmail.com",
+      "videoId": "Cgh4oyRvsbA",
+      "goals": [
+        { "count": 100, "achieved": true },
+        { "count": 250, "achieved": true },
+        { "count": 500, "achieved": true },
+        { "count": 1000, "achieved": true },
+        { "count": 2500, "achieved": true },
+        { "count": 5000, "achieved": true },
+        { "count": 10000, "achieved": false },
+        { "count": 25000, "achieved": false },
+        { "count": 50000, "achieved": false },
+        { "count": 100000, "achieved": false },
+        { "count": 250000, "achieved": false },
+        { "count": 500000, "achieved": false },
+        { "count": 1000000, "achieved": false },
+        { "count": 2000000, "achieved": false }
+      ]
     },
     {
       "id": "github",
-      "file": "github.txt",
-      "label": "Perfil de GitHub",
+      "label": "GitHub",
       "desc": "Dubicrack-YT",
-      "page": "github.html",
+      "folder": "github",
       "external": "https://github.com/Dubicrack-YT",
       "icon": "github",
-      "accent": "#4fd1c5"
+      "accent": "#4fd1c5",
+      "apiUser": "Dubicrack-YT"
     }
   ]
 }

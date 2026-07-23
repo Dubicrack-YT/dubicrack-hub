@@ -1,29 +1,30 @@
 {
   "site": {
     "name": "Dubicrack",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "tagline": "hub de enlaces"
   },
   "sites": [
     {
       "id": "youtube",
-      "file": "youtube.txt",
-      "label": "Canal de YouTube",
+      "label": "YouTube",
       "desc": "@DubicrackTK",
-      "page": "youtube.html",
+      "folder": "youtube",
       "external": "https://www.youtube.com/@DubicrackTK",
       "icon": "youtube",
-      "accent": "#ff4d4d"
+      "accent": "#ff4d4d",
+      "bio": "Edita este texto en config.json (campo \"bio\") para poner tu descripción real del canal.",
+      "videoId": ""
     },
     {
       "id": "github",
-      "file": "github.txt",
-      "label": "Perfil de GitHub",
+      "label": "GitHub",
       "desc": "Dubicrack-YT",
-      "page": "github.html",
+      "folder": "github",
       "external": "https://github.com/Dubicrack-YT",
       "icon": "github",
-      "accent": "#4fd1c5"
+      "accent": "#4fd1c5",
+      "apiUser": "Dubicrack-YT"
     }
   ]
 }

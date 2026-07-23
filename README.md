@@ -1,6 +1,6 @@
 # Dubicrack — Hub de enlaces
 
-Página tipo terminal que sirve como punto de entrada a mis sitios: canal de YouTube, perfil de GitHub y lo que se vaya sumando.
+Página tipo terminal que sirve como punto de entrada a mis sitios: canal de YouTube, perfil de GitHub y lo que se vaya sumando. Cada subsitio vive en su propia carpeta y trae contenido real cuando es posible.
 
 🔗 **Demo:** https://dubicrack-yt.github.io/
 
@@ -8,38 +8,45 @@ Página tipo terminal que sirve como punto de entrada a mis sitios: canal de You
 
 ```
 dubicrack-hub/
-├── index.html        # hub principal, lista los subsitios desde config.json
-├── youtube.html       # subpágina del canal de YouTube
-├── github.html         # subpágina del perfil de GitHub
-├── config.json        # versión del sitio + lista de subsitios que se muestran
-└── assets/
-    ├── style.css       # estilos compartidos (tema terminal)
-    └── script.js       # lee config.json y arma la lista/fichas dinámicamente
+├── index.html          # hub principal, lista las carpetas de subsitios desde config.json
+├── config.json         # versión del sitio + datos de cada subsitio
+├── assets/
+│   ├── style.css        # estilos compartidos (tema terminal)
+│   └── script.js         # lee config.json, arma el listado y trae contenido real
+├── youtube/
+│   └── index.html       # subpágina del canal: bio editable + video incrustable
+└── github/
+    └── index.html        # subpágina del perfil: repos reales vía API de GitHub
 ```
+
+## Contenido de cada subpágina
+
+- **github/**: trae en vivo tus repositorios públicos más recientes usando la API pública de GitHub (`api.github.com`, sin necesidad de API key). Muestra nombre, descripción, lenguaje, estrellas y forks.
+- **youtube/**: como YouTube no tiene una API pública sin clave, la bio y el video destacado se configuran a mano en `config.json` (campos `"bio"` y `"videoId"`). Si dejas `"videoId"` vacío, se muestra un aviso invitando a completarlo.
 
 ## Cómo añadir un subsitio nuevo
 
-1. Agrega una entrada en el arreglo `sites` de `config.json`:
+1. Crea una carpeta nueva, por ejemplo `twitch/`, con su propio `index.html` (puedes copiar `github/index.html` como base).
+2. Agrega una entrada en el arreglo `sites` de `config.json`:
 
 ```json
 {
   "id": "twitch",
-  "file": "twitch.txt",
   "label": "Twitch",
   "desc": "@tuUsuario",
-  "page": "twitch.html",
+  "folder": "twitch",
   "external": "https://twitch.tv/tuUsuario",
   "icon": "twitch",
   "accent": "#9146ff"
 }
 ```
 
-2. Copia `github.html` como plantilla, renómbralo (`twitch.html`) y cambia la línea `renderProfile(cfg, 'github')` por `renderProfile(cfg, 'twitch')`.
-3. Si el ícono es nuevo, agrégalo al objeto `ICONS` en `assets/script.js`.
+3. En el `index.html` de la carpeta nueva, cambia `renderProfile(cfg, 'github')` por `renderProfile(cfg, 'twitch')`.
+4. Si el ícono es nuevo, agrégalo al objeto `ICONS` en `assets/script.js`.
 
 ## Cambiar la versión
 
-Solo edita `"version"` dentro de `config.json`. Se actualiza automáticamente en todas las páginas.
+Edita `"version"` dentro de `config.json`. Se actualiza automáticamente en todas las páginas.
 
 ## Probarlo en local
 

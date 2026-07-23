@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dubicrack — GitHub</title>
+<title>Dubicrack — YouTube</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
 
@@ -18,13 +18,11 @@
       <span class="dot red"></span>
       <span class="dot yellow"></span>
       <span class="dot green"></span>
-      <span class="path">dubicrack@hub: ~/github</span>
+      <span class="path">dubicrack@hub: ~/youtube</span>
       <span class="version" data-version>v…</span>
     </div>
     <div class="screen">
-      <a class="back-link" href="index.html">← volver al hub</a>
-
-      <p class="line"><span class="prompt">$</span> <span class="cmd">cat</span> github.txt<span class="cursor"></span></p>
+      <a class="back-link" href="../index.html">← volver al hub</a>
 
       <div class="profile-card">
         <span class="icon-lg" data-profile-icon></span>
@@ -34,22 +32,25 @@
         </div>
       </div>
 
-      <a class="btn" data-profile-link href="#" target="_blank" rel="noopener noreferrer">
-        Ver perfil en GitHub →
-      </a>
+      <p class="bio-text" data-bio>Cargando…</p>
 
-      <p class="status-line"><span class="ok">●</span> enlace externo verificado</p>
+      <div class="video-embed" data-video></div>
+
+      <a class="btn" data-profile-link href="#" target="_blank" rel="noopener noreferrer">
+        Ver canal en YouTube →
+      </a>
     </div>
   </div>
   <footer class="credit">Dubicrack · hub de enlaces</footer>
 </div>
 
-<script src="assets/script.js"></script>
+<script src="../assets/script.js"></script>
 <script>
   loadConfig()
     .then(cfg => {
       paintVersion(cfg);
-      renderProfile(cfg, 'github');
+      const site = renderProfile(cfg, 'youtube');
+      if (site) renderYoutubeExtras(site);
     })
     .catch(err => console.error(err));
 </script>

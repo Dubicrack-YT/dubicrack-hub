@@ -1,0 +1,29 @@
+{
+  "site": {
+    "name": "Dubicrack",
+    "version": "1.0.0",
+    "tagline": "hub de enlaces"
+  },
+  "sites": [
+    {
+      "id": "youtube",
+      "file": "youtube.txt",
+      "label": "Canal de YouTube",
+      "desc": "@DubicrackTK",
+      "page": "youtube.html",
+      "external": "https://www.youtube.com/@DubicrackTK",
+      "icon": "youtube",
+      "accent": "#ff4d4d"
+    },
+    {
+      "id": "github",
+      "file": "github.txt",
+      "label": "Perfil de GitHub",
+      "desc": "Dubicrack-YT",
+      "page": "github.html",
+      "external": "https://github.com/Dubicrack-YT",
+      "icon": "github",
+      "accent": "#4fd1c5"
+    }
+  ]
+}

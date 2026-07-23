@@ -2,7 +2,7 @@
 
 Página tipo terminal que sirve como punto de entrada a mis sitios: canal de YouTube, perfil de GitHub y lo que se vaya sumando. Cada subsitio vive en su propia carpeta y trae contenido real cuando es posible.
 
-🔗 **Demo:** https://dubicrack-yt.github.io/
+🔗 **Demo:** [https://dubicrack-yt.github.io/](https://dubicrack-yt.github.io/dubicrack-hub/)
 
 ## Estructura
 

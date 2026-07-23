@@ -66,26 +66,106 @@ function renderProfile(cfg, siteId) {
   return site;
 }
 
-// Youtube: pinta bio y, si hay videoId en config.json, incrusta el video
+// Acepta youtu.be/ID, youtube.com/watch?v=ID, /embed/ID, /shorts/ID (con o sin parámetros extra como ?si=...)
+function extractYoutubeId(url) {
+  try {
+    const u = new URL(url.trim());
+    if (u.hostname.includes('youtu.be')) return u.pathname.slice(1).split('/')[0] || null;
+    if (u.searchParams.get('v')) return u.searchParams.get('v');
+    const m = u.pathname.match(/\/(embed|shorts)\/([^/?]+)/);
+    if (m) return m[2];
+  } catch (_) { /* URL inválida, se ignora */ }
+  return null;
+}
+
+// Youtube: pinta bio, contacto, metas y el carrusel de videos
 function renderYoutubeExtras(site) {
   const bioEl = document.querySelector('[data-bio]');
   if (bioEl) bioEl.textContent = site.bio || '';
 
-  const videoEl = document.querySelector('[data-video]');
-  if (!videoEl) return;
+  const contactEl = document.querySelector('[data-contact]');
+  if (contactEl && site.contact) {
+    contactEl.innerHTML = `✉ <a href="mailto:${site.contact}">${site.contact}</a>`;
+  }
 
-  if (site.videoId) {
-    videoEl.innerHTML = `<iframe src="https://www.youtube.com/embed/${site.videoId}" title="Video de YouTube" allowfullscreen loading="lazy"></iframe>`;
-  } else {
-    videoEl.innerHTML = `<div class="video-placeholder">Agrega un "videoId" en config.json para incrustar aquí un video destacado.</div>`;
+  renderVideoCarousel(site);
+
+  const goalsEl = document.querySelector('[data-goals]');
+  if (goalsEl && Array.isArray(site.goals)) {
+    goalsEl.innerHTML = '<p class="heading">Metas del canal</p>';
+    site.goals.forEach(g => {
+      const row = document.createElement('div');
+      row.className = 'goal-row' + (g.achieved ? ' achieved' : '');
+      row.innerHTML = `
+        <span class="goal-bar"><span class="goal-fill" style="width:${g.achieved ? 100 : 0}%"></span></span>
+        <span class="goal-count">${g.count.toLocaleString('es-ES')} subs</span>
+        <span class="goal-mark">${g.achieved ? '✅' : '❌'}</span>
+      `;
+      goalsEl.appendChild(row);
+    });
   }
 }
 
+function renderVideoCarousel(site) {
+  const mainEl = document.querySelector('[data-video-main]');
+  const stripEl = document.querySelector('[data-video-strip]');
+  if (!mainEl || !stripEl) return;
+
+  const ids = (site.videos || []).map(extractYoutubeId).filter(Boolean);
+
+  if (ids.length === 0) {
+    mainEl.innerHTML = '<div class="video-placeholder">Agrega URLs en el arreglo "videos" de config.json para mostrarlas aquí.</div>';
+    stripEl.innerHTML = '';
+    return;
+  }
+
+  function setActive(id) {
+    mainEl.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}" title="Video de YouTube" allowfullscreen loading="lazy"></iframe>`;
+    stripEl.querySelectorAll('.thumb').forEach(t => t.classList.toggle('active', t.dataset.id === id));
+  }
+
+  stripEl.innerHTML = '';
+  ids.forEach(id => {
+    const btn = document.createElement('button');
+    btn.className = 'thumb';
+    btn.dataset.id = id;
+    btn.innerHTML = `<img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><span class="play">▶</span>`;
+    btn.addEventListener('click', () => setActive(id));
+    stripEl.appendChild(btn);
+  });
+
+  setActive(ids[0]);
+
+  const prevBtn = document.querySelector('[data-car-prev]');
+  const nextBtn = document.querySelector('[data-car-next]');
+  if (prevBtn) prevBtn.addEventListener('click', () => stripEl.scrollBy({ left: -240, behavior: 'smooth' }));
+  if (nextBtn) nextBtn.addEventListener('click', () => stripEl.scrollBy({ left: 240, behavior: 'smooth' }));
+
+  // ocultar flechas si no hace falta scroll (una sola miniatura, por ejemplo)
+  const arrows = document.querySelector('[data-car-arrows]');
+  if (arrows) arrows.style.display = ids.length > 2 ? '' : 'none';
+}
+
+// Colores aproximados de GitHub Linguist para las barras de lenguaje
+const LANG_COLORS = {
+  JavaScript: '#f1e05a', TypeScript: '#3178c6', Python: '#3572A5', HTML: '#e34c26',
+  CSS: '#563d7c', Java: '#b07219', 'C++': '#f34b7d', C: '#555555', Shell: '#89e051',
+  Lua: '#000080', 'C#': '#178600', PHP: '#4F5D95', Ruby: '#701516', Go: '#00ADD8',
+  Rust: '#dea584', 'Jupyter Notebook': '#DA5B0B', Dockerfile: '#384d54', Vue: '#41b883',
+  Kotlin: '#A97BFF', Swift: '#F05138', Batchfile: '#C1F12E', Makefile: '#427819'
+};
+function langColor(name) {
+  if (LANG_COLORS[name]) return LANG_COLORS[name];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return `hsl(${hash % 360}, 55%, 55%)`;
+}
+
 // GitHub: trae repos reales desde la API pública (sin API key, CORS habilitado)
-async function renderGithubRepos(apiUser, containerEl) {
+async function renderGithubRepos(apiUser, containerEl, viewerEl) {
   containerEl.innerHTML = '<p class="status-line">Cargando repositorios…</p>';
   try {
-    const res = await fetch(`https://api.github.com/users/${apiUser}/repos?sort=updated&per_page=6`);
+    const res = await fetch(`https://api.github.com/users/${apiUser}/repos?sort=updated&per_page=8`);
     if (!res.ok) throw new Error('GitHub API respondió ' + res.status);
     const repos = await res.json();
 
@@ -94,15 +174,14 @@ async function renderGithubRepos(apiUser, containerEl) {
       return;
     }
 
-    containerEl.innerHTML = '<p class="heading">Repositorios recientes</p>';
+    containerEl.innerHTML = '<p class="heading">Repositorios recientes — clic para ver detalle</p>';
     repos.forEach(repo => {
       const a = document.createElement('a');
       a.className = 'repo-card';
       a.href = repo.html_url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
+      a.dataset.fullName = repo.full_name;
       a.innerHTML = `
-        <div class="repo-name">${repo.name}</div>
+        <div class="repo-name">${repo.name} <span class="repo-open-ext" title="Abrir en GitHub">↗</span></div>
         <div class="repo-desc">${repo.description ? repo.description : 'Sin descripción'}</div>
         <div class="repo-meta">
           ${repo.language ? `<span>${repo.language}</span>` : ''}
@@ -110,9 +189,78 @@ async function renderGithubRepos(apiUser, containerEl) {
           <span>${ICONS.fork} ${repo.forks_count}</span>
         </div>
       `;
+      a.addEventListener('click', (ev) => {
+        // ctrl/cmd/click-rueda: dejar que abra en pestaña nueva normalmente
+        if (ev.ctrlKey || ev.metaKey || ev.button === 1) return;
+        // clic en el ícono ↗: abrir directo en GitHub
+        if (ev.target.closest('.repo-open-ext')) return;
+        ev.preventDefault();
+        openRepoViewer(repo, containerEl, viewerEl);
+      });
       containerEl.appendChild(a);
     });
   } catch (err) {
     containerEl.innerHTML = `<p class="status-line"><span class="err">●</span> no se pudieron cargar los repos (${err.message})</p>`;
   }
+}
+
+async function openRepoViewer(repo, listEl, viewerEl) {
+  listEl.style.display = 'none';
+  viewerEl.hidden = false;
+  viewerEl.innerHTML = `
+    <button class="back-btn" data-back>← volver a la lista</button>
+    <h3 class="viewer-name">${repo.name}</h3>
+    <p class="viewer-desc">${repo.description ? repo.description : 'Sin descripción'}</p>
+    <div class="viewer-stats">
+      <span>${ICONS.star} ${repo.stargazers_count} estrellas</span>
+      <span>${ICONS.fork} ${repo.forks_count} forks</span>
+      <span>👁 ${repo.watchers_count} watchers</span>
+      <span>⚑ ${repo.open_issues_count} issues</span>
+    </div>
+    <div class="lang-bar" data-langs><span class="status-line">Cargando lenguajes…</span></div>
+    <div class="readme-box" data-readme>Cargando README…</div>
+    <a class="btn" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">Visitar repositorio →</a>
+  `;
+  viewerEl.querySelector('[data-back]').addEventListener('click', () => {
+    viewerEl.hidden = true;
+    listEl.style.display = '';
+  });
+
+  // Lenguajes usados (bytes por lenguaje)
+  fetch(`https://api.github.com/repos/${repo.full_name}/languages`)
+    .then(r => r.ok ? r.json() : {})
+    .then(langs => {
+      const box = viewerEl.querySelector('[data-langs]');
+      const total = Object.values(langs).reduce((a, b) => a + b, 0);
+      if (!total) { box.innerHTML = ''; return; }
+      box.innerHTML = `
+        <div class="lang-track">${Object.entries(langs).map(([name, bytes]) =>
+          `<span style="width:${(bytes / total * 100).toFixed(1)}%; background:${langColor(name)}"></span>`
+        ).join('')}</div>
+        <div class="lang-legend">${Object.entries(langs).map(([name, bytes]) =>
+          `<span><i style="background:${langColor(name)}"></i>${name} ${(bytes / total * 100).toFixed(0)}%</span>`
+        ).join('')}</div>
+      `;
+    })
+    .catch(() => { viewerEl.querySelector('[data-langs]').innerHTML = ''; });
+
+  // README renderizado
+  fetch(`https://api.github.com/repos/${repo.full_name}/readme`, {
+    headers: { Accept: 'application/vnd.github.v3.raw' }
+  })
+    .then(r => { if (!r.ok) throw new Error('sin README'); return r.text(); })
+    .then(md => {
+      const box = viewerEl.querySelector('[data-readme]');
+      if (window.marked) {
+        box.innerHTML = marked.parse(md);
+      } else {
+        const pre = document.createElement('pre');
+        pre.textContent = md;
+        box.innerHTML = '';
+        box.appendChild(pre);
+      }
+    })
+    .catch(() => {
+      viewerEl.querySelector('[data-readme]').innerHTML = '<p class="status-line">Este repositorio no tiene README.</p>';
+    });
 }

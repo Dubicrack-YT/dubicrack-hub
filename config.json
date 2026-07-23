@@ -15,7 +15,10 @@
       "accent": "#ff4d4d",
       "bio": "No hace falta ser perfecto para brillar. Amo la astronomía, los videojuegos y las amistades reales. 🌌 Solo un chico tratando de dejar huella.",
       "contact": "dubicrack.suport@gmail.com",
-      "videoId": "Cgh4oyRvsbA",
+      "videos": [
+        "https://youtu.be/Cgh4oyRvsbA?si=CLa6oozbx4SB2Dn1",
+        "https://youtu.be/V-ulPUFnaaI?si=7VEL-4RQyqNLFmmM"
+      ],
       "goals": [
         { "count": 100, "achieved": true },
         { "count": 250, "achieved": true },

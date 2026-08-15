@@ -23,6 +23,7 @@ async function loadConfig() {
 function paintVersion(cfg) {
   ICONS.discord = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 5.1A16.5 16.5 0 0 0 15.4 4l-.5 1.1a15.5 15.5 0 0 0-5.8 0L8.6 4a16.4 16.4 0 0 0-4.1 1.1C1.9 9 1.2 12.8 1.5 16.5a16.6 16.6 0 0 0 5 2.5l1.2-1.6-1.8-.9.4-.3c3.5 1.6 7.8 1.6 11.4 0l.4.3-1.8.9 1.2 1.6a16.5 16.5 0 0 0 5-2.5c.4-4.3-.7-8-3.1-11.4ZM8.3 14.2c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm7.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg>';
   ICONS.beacons = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5.5 8.5 12 3l6.5 5.5M4 20h16M7.5 12.5h9M9 16h6"/></svg>';
+  ICONS.link = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.1.1l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1"/><path d="M14 11a5 5 0 0 0-7.1-.1l-2 2A5 5 0 0 0 12 20l1.1-1.1"/></svg>';
   document.querySelectorAll('[data-version]').forEach(el => { el.textContent = 'v' + cfg.site.version; });
   document.querySelectorAll('[data-site-name]').forEach(el => { el.textContent = cfg.site.name; });
 }

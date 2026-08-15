@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "Dubicrack",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "tagline": "hub de enlaces"
   },
   "sites": [
@@ -48,25 +48,23 @@
     },
     {
       "id": "beacons",
-      "label": "Beacons",
-      "desc": "YouTube · Discord",
+      "label": "Enlaces",
+      "desc": "11 destinos directos",
       "folder": "beacons",
-      "external": "https://beacons.ai/dubicracktk",
       "icon": "beacons",
       "accent": "#a58cff",
       "links": [
-        {
-          "label": "YouTube",
-          "desc": "Canal oficial @DubicrackTK",
-          "url": "https://www.youtube.com/@DubicrackTK",
-          "icon": "youtube"
-        },
-        {
-          "label": "Discord",
-          "desc": "Unirse a la comunidad",
-          "url": "https://discord.gg/TxJBZmdhU2",
-          "icon": "discord"
-        }
+        { "label": "YouTube", "desc": "Canal oficial @DubicrackTK", "url": "https://youtube.com/@DubicrackTK", "icon": "youtube" },
+        { "label": "Discord", "desc": "Comunidad de Dubicrack", "url": "http://dsc.gg/dubicrack", "icon": "discord" },
+        { "label": "Twitch", "desc": "Directos de Dubicrack", "url": "https://www.twitch.tv/dubicrack_yt", "icon": "link" },
+        { "label": "Kick", "desc": "Canal de Kick", "url": "https://kick.com/dubicracktk", "icon": "link" },
+        { "label": "TikTok", "desc": "@dubicracktk", "url": "https://www.tiktok.com/@dubicracktk", "icon": "link" },
+        { "label": "Instagram", "desc": "@dubicracktk", "url": "https://www.instagram.com/dubicracktk", "icon": "link" },
+        { "label": "Patreon", "desc": "Apoyo a DubicrackYT", "url": "https://www.patreon.com/cw/DubicrackYT", "icon": "link" },
+        { "label": "X", "desc": "@dubicrack", "url": "https://x.com/dubicrack", "icon": "link" },
+        { "label": "Roblox", "desc": "Perfil de Roblox", "url": "https://www.roblox.com/es/users/2693136322/profile", "icon": "link" },
+        { "label": "Spotify", "desc": "Perfil de Spotify", "url": "https://open.spotify.com/user/plbcoo3r4gi9l1ydkz24uvvuo", "icon": "link" },
+        { "label": "Pinterest", "desc": "Perfil de Pinterest", "url": "https://www.pinterest.com/dubalinponce", "icon": "link" }
       ]
     }
   ]

@@ -86,14 +86,24 @@ function renderMainLinks(cfg, listEl, previewEl) {
   const urlEl = previewEl.querySelector('[data-preview-url]');
   const labelEl = previewEl.querySelector('[data-preview-label]');
   const openEl = previewEl.querySelector('[data-preview-open]');
+  const fallbackIcon = previewEl.querySelector('[data-preview-icon]');
+  const fallbackTitle = previewEl.querySelector('[data-preview-title]');
+  const fallbackCopy = previewEl.querySelector('[data-preview-copy]');
   const countEl = document.querySelector('[data-main-link-count]');
   if (countEl) countEl.textContent = String(links.length).padStart(2, '0');
 
   const selectLink = (link, tile) => {
     listEl.querySelectorAll('.link-tile').forEach(item => item.classList.remove('is-selected'));
     tile.classList.add('is-selected');
-    frame.src = link.url;
-    empty.hidden = true;
+    const previewUrl = link.preview || '';
+    frame.hidden = !previewUrl;
+    frame.src = previewUrl || 'about:blank';
+    empty.hidden = Boolean(previewUrl);
+    if (!previewUrl) {
+      fallbackIcon.innerHTML = linkBrandMarkup(link);
+      fallbackTitle.textContent = `${link.label}: vista por URL`;
+      fallbackCopy.textContent = 'Esta plataforma no permite una vista incrustada. Usa ABRIR para ir directamente a su sitio oficial.';
+    }
     urlEl.textContent = link.url.replace(/^https?:\/\//, '');
     labelEl.textContent = link.label;
     openEl.href = link.url;

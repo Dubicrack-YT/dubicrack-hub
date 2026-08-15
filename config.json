@@ -56,7 +56,7 @@
         { "label": "Patreon", "desc": "Apoyo a DubicrackYT", "url": "https://www.patreon.com/cw/DubicrackYT", "icon": "patreon" },
         { "label": "X", "desc": "@dubicrack", "url": "https://x.com/dubicrack", "icon": "x" },
         { "label": "Roblox", "desc": "Perfil de Roblox", "url": "https://www.roblox.com/es/users/2693136322/profile", "icon": "roblox" },
-        { "label": "Spotify", "desc": "Perfil de Spotify", "url": "https://open.spotify.com/user/plbcoo3r4gi9l1ydkz24uvvuo", "preview": "https://open.spotify.com/embed/user/plbcoo3r4gi9l1ydkz24uvvuo", "icon": "spotify" },
+        { "label": "Spotify", "desc": "Perfil de Spotify", "url": "https://open.spotify.com/user/plbcoo3r4gi9l1ydkz24uvvuo", "previewNote": "Spotify no permite incrustar perfiles de usuario. Usa ABRIR para ver el perfil público de Dubicrack en Spotify.", "icon": "spotify" },
         { "label": "Pinterest", "desc": "Perfil de Pinterest", "url": "https://www.pinterest.com/dubalinponce", "icon": "pinterest" }
       ]
     }

@@ -1,3 +1,4 @@
+// Diseño Directorio de señales: mantiene datos configurables y presenta rutas de forma clara, sin simular administración.
 // Lee config.json y expone los datos a index.html / youtube/index.html / github/index.html
 // Cambia aquí NADA: toda la configuración vive en config.json
 
@@ -24,13 +25,25 @@ function paintVersion(cfg) {
   document.querySelectorAll('[data-site-name]').forEach(el => { el.textContent = cfg.site.name; });
 }
 
+function paintHubStatus(cfg) {
+  const count = Array.isArray(cfg.sites) ? cfg.sites.length : 0;
+  document.querySelectorAll('[data-channel-count]').forEach(el => { el.textContent = String(count).padStart(2, '0'); });
+  const clock = document.querySelector('[data-hub-time]');
+  if (!clock) return;
+  const tick = () => { clock.textContent = new Intl.DateTimeFormat('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(new Date()); };
+  tick();
+  window.setInterval(tick, 1000);
+}
+
 // Para index.html: listado tipo "ls -la" con carpetas reales
 function renderListing(cfg, containerEl) {
   containerEl.innerHTML = '';
   cfg.sites.forEach(site => {
     const a = document.createElement('a');
-    a.className = 'entry';
+    a.className = 'entry directory-entry';
     a.href = site.folder + '/index.html';
+    a.style.setProperty('--site-accent', site.accent || 'var(--signal)');
+    a.setAttribute('aria-label', `Abrir ${site.label}`);
     a.innerHTML = `
       <span class="perms">drwxr-xr-x</span>
       <span class="icon">${ICONS[site.icon] || ''}</span>
@@ -38,7 +51,8 @@ function renderListing(cfg, containerEl) {
         <span class="name">${site.folder}/</span>
         <span class="desc">${site.label} — ${site.desc}</span>
       </span>
-      <span class="arrow">→ abrir</span>
+      <span class="entry-state">READY</span>
+      <span class="arrow">↗ abrir</span>
     `;
     containerEl.appendChild(a);
   });

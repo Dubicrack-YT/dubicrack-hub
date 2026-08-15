@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "Dubicrack",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "tagline": "hub de enlaces"
   },
   "sites": [
@@ -45,6 +45,29 @@
       "icon": "github",
       "accent": "#4fd1c5",
       "apiUser": "Dubicrack-YT"
+    },
+    {
+      "id": "beacons",
+      "label": "Beacons",
+      "desc": "YouTube · Discord",
+      "folder": "beacons",
+      "external": "https://beacons.ai/dubicracktk",
+      "icon": "beacons",
+      "accent": "#a58cff",
+      "links": [
+        {
+          "label": "YouTube",
+          "desc": "Canal oficial @DubicrackTK",
+          "url": "https://www.youtube.com/@DubicrackTK",
+          "icon": "youtube"
+        },
+        {
+          "label": "Discord",
+          "desc": "Unirse a la comunidad",
+          "url": "https://discord.gg/TxJBZmdhU2",
+          "icon": "discord"
+        }
+      ]
     }
   ]
 }

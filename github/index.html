@@ -1,60 +1,47 @@
-<!DOCTYPE html>
+<!-- Signal Directory: página de repositorios con la misma jerarquía terminal, cuadrícula y navegación del Hub principal. -->
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="description" content="Perfil de GitHub de Dubicrack — repositorios y proyectos.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2310141c%22/%3E%3Ctext x=%2250%22 y=%2266%22 font-size=%2255%22 font-family=%22monospace%22 fill=%22%23ffb000%22 text-anchor=%22middle%22%3E%26gt;_%3C/text%3E%3C/svg%3E">
-<title>Dubicrack — GitHub</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="description" content="Perfil de GitHub de Dubicrack: repositorios y proyectos públicos.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%230b100f%22/%3E%3Cpath d=%22M22 30l24 20-24 20M57 70h23%22 fill=%22none%22 stroke=%22%2362d7cb%22 stroke-width=%229%22/%3E%3C/svg%3E">
+  <title>Dubicrack — GitHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css?v=1.2.0">
+  <link rel="stylesheet" href="../assets/hub-pages.css?v=1.2.0">
 </head>
-<body>
-
-<div class="crt-overlay"></div>
-
-<div class="wrap">
-  <div class="terminal">
-    <div class="titlebar">
-      <span class="dot red"></span>
-      <span class="dot yellow"></span>
-      <span class="dot green"></span>
-      <span class="path">dubicrack@hub: ~/github</span>
-      <span class="version" data-version>v…</span>
-    </div>
-    <div class="screen">
-      <a class="back-link" href="../index.html">← volver al hub</a>
-
-      <div class="profile-card">
-        <span class="icon-lg" data-profile-icon></span>
-        <div>
-          <div class="name" data-profile-name>—</div>
-          <div class="handle" data-profile-handle>—</div>
-        </div>
-      </div>
-
-      <a class="btn" data-profile-link href="#" target="_blank" rel="noopener noreferrer">
-        Ver perfil en GitHub →
-      </a>
-
-      <div class="repo-list" id="repo-list"></div>
-      <div class="repo-viewer" id="repo-viewer" hidden></div>
-    </div>
-  </div>
-  <footer class="credit">Dubicrack · hub de enlaces</footer>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
-<script src="../assets/script.js"></script>
-<script>
-  loadConfig()
-    .then(cfg => {
-      paintVersion(cfg);
-      const site = renderProfile(cfg, 'github');
-      if (site) renderGithubRepos(site.apiUser, document.getElementById('repo-list'), document.getElementById('repo-viewer'));
-    })
-    .catch(err => console.error(err));
-</script>
+<body class="hub-page github-page">
+  <div class="crt-overlay" aria-hidden="true"></div>
+  <main class="hub-shell">
+    <header class="command-header">
+      <a class="hub-brand" href="../index.html" aria-label="Volver al Hub"><span class="brand-prompt">&gt;_</span><span>DUBICRACK</span><i></i></a>
+      <nav class="command-nav" aria-label="Navegación de GitHub"><a href="../index.html#directorios">DIRECTORIOS</a><a href="#proyectos">PROYECTOS</a></nav>
+      <div class="session-state"><span class="state-pulse"></span><span>CÓDIGO ACTIVO</span><time data-hub-time>--:--:--</time></div>
+    </header>
+    <section class="hub-page-layout">
+      <aside class="page-rail" aria-label="Resumen de repositorios">
+        <p class="rail-label">02 / REPOS</p><div class="rail-glyph" aria-hidden="true"><span>⌘</span><i>_</i></div>
+        <div class="rail-copy"><p class="eyebrow">CÓDIGO Y PROYECTOS</p><h2>Ideas<br>que dejan<br><em>rastro.</em></h2><p>Los repositorios públicos más recientes de Dubicrack-YT, consultados desde GitHub.</p></div>
+        <dl class="rail-stats"><div><dt>fuente</dt><dd>github</dd></div><div><dt>estado</dt><dd>online</dd></div><div><dt>build</dt><dd data-version>v…</dd></div></dl><a class="rail-jump" href="../index.html#directorios">Volver al directorio <span>↖</span></a>
+      </aside>
+      <section class="page-stage" id="proyectos">
+        <div class="stage-index" aria-hidden="true"><span>GITHUB / 02</span><span>REPO READY</span></div>
+        <div class="page-copy"><p class="eyebrow">DUBICRACK / SOURCE DIRECTORY</p><h1>Código con<br>una ruta<br><em>propia.</em></h1><p>Consulta los proyectos públicos más recientes, explora sus lenguajes y abre cada repositorio desde su fuente.</p></div>
+        <section class="directory-panel page-terminal" aria-label="Repositorios de GitHub">
+          <div class="directory-bar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><p><b>dubicrack@github</b>:~$ git log --recent</p><span>REPO INDEX</span></div>
+          <div class="page-body">
+            <div class="profile-card"><span class="icon-lg" data-profile-icon></span><div><div class="name" data-profile-name>—</div><div class="handle" data-profile-handle>—</div></div></div>
+            <a class="btn" data-profile-link href="#" target="_blank" rel="noopener noreferrer">ABRIR PERFIL <span>↗</span></a><div class="repo-list" id="repo-list"></div><div class="repo-viewer" id="repo-viewer" hidden></div>
+          </div>
+          <div class="directory-command"><span class="prompt">$</span><span class="cmd">inspect</span><span class="cursor" aria-hidden="true"></span></div>
+        </section>
+      </section>
+    </section>
+    <footer class="hub-footer"><p><span>©</span> DUBICRACK HUB · <span data-version>v…</span></p><p>RUTAS ABIERTAS · CONTENIDO REAL CUANDO ESTÁ DISPONIBLE</p><a href="#proyectos">ARRIBA <span>↑</span></a></footer>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script><script src="../assets/script.js?v=1.2.0"></script>
+  <script>loadConfig().then(cfg => { paintVersion(cfg); paintHubStatus(cfg); const site = renderProfile(cfg, 'github'); if (site) renderGithubRepos(site.apiUser, document.getElementById('repo-list'), document.getElementById('repo-viewer')); }).catch(err => console.error(err));</script>
 </body>
 </html>

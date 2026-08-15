@@ -47,16 +47,16 @@
       "icon": "beacons",
       "accent": "#a58cff",
       "links": [
-        { "label": "YouTube", "desc": "Canal oficial @DubicrackTK", "url": "https://youtube.com/@DubicrackTK", "icon": "youtube" },
+        { "label": "YouTube", "desc": "Canal oficial @DubicrackTK", "url": "https://youtube.com/@DubicrackTK", "preview": "https://www.youtube.com/embed/Cgh4oyRvsbA", "icon": "youtube" },
         { "label": "Discord", "desc": "Comunidad de Dubicrack", "url": "http://dsc.gg/dubicrack", "icon": "discord" },
-        { "label": "Twitch", "desc": "Directos de Dubicrack", "url": "https://www.twitch.tv/dubicrack_yt", "icon": "twitch" },
+        { "label": "Twitch", "desc": "Directos de Dubicrack", "url": "https://www.twitch.tv/dubicrack_yt", "preview": "https://player.twitch.tv/?channel=dubicrack_yt&parent=dubicrack-yt.github.io", "icon": "twitch" },
         { "label": "Kick", "desc": "Canal de Kick", "url": "https://kick.com/dubicracktk", "icon": "kick" },
         { "label": "TikTok", "desc": "@dubicracktk", "url": "https://www.tiktok.com/@dubicracktk", "icon": "tiktok" },
         { "label": "Instagram", "desc": "@dubicracktk", "url": "https://www.instagram.com/dubicracktk", "icon": "instagram" },
         { "label": "Patreon", "desc": "Apoyo a DubicrackYT", "url": "https://www.patreon.com/cw/DubicrackYT", "icon": "patreon" },
         { "label": "X", "desc": "@dubicrack", "url": "https://x.com/dubicrack", "icon": "x" },
         { "label": "Roblox", "desc": "Perfil de Roblox", "url": "https://www.roblox.com/es/users/2693136322/profile", "icon": "roblox" },
-        { "label": "Spotify", "desc": "Perfil de Spotify", "url": "https://open.spotify.com/user/plbcoo3r4gi9l1ydkz24uvvuo", "icon": "spotify" },
+        { "label": "Spotify", "desc": "Perfil de Spotify", "url": "https://open.spotify.com/user/plbcoo3r4gi9l1ydkz24uvvuo", "preview": "https://open.spotify.com/embed/user/plbcoo3r4gi9l1ydkz24uvvuo", "icon": "spotify" },
         { "label": "Pinterest", "desc": "Perfil de Pinterest", "url": "https://www.pinterest.com/dubalinponce", "icon": "pinterest" }
       ]
     }

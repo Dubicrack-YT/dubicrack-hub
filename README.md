@@ -1,8 +1,10 @@
 # Dubicrack — Hub de enlaces
 
+> **Abrir Dubicrack Hub:** [https://dubicrack-yt.github.io/dubicrack-hub/](https://dubicrack-yt.github.io/dubicrack-hub/)
+
 Página tipo terminal que sirve como punto de entrada a mis sitios: canal de YouTube, perfil de GitHub y lo que se vaya sumando. Cada subsitio vive en su propia carpeta y trae contenido real cuando es posible.
 
-🔗 **Demo:** https://dubicrack-yt.github.io/
+🔗 **Demo:** [https://dubicrack-yt.github.io/dubicrack-hub/](https://dubicrack-yt.github.io/dubicrack-hub/)
 
 ## Estructura
 
@@ -59,6 +61,8 @@ python3 -m http.server
 y entra a `http://localhost:8000`.
 
 ## Publicarlo en GitHub Pages
+
+La versión publicada está disponible en [https://dubicrack-yt.github.io/dubicrack-hub/](https://dubicrack-yt.github.io/dubicrack-hub/).
 
 1. Sube el contenido de esta carpeta a la raíz de un repositorio (por ejemplo `Dubicrack-YT.github.io` para que sea tu página principal).
 2. Ve a **Settings → Pages**, selecciona la rama `main` y la carpeta `/root`.

@@ -1,6 +1,6 @@
 // Diseño Directorio de señales: mantiene datos configurables y presenta rutas de forma clara, sin simular administración.
-// Lee config.json y expone los datos a index.html / youtube/index.html / github/index.html
-// Cambia aquí NADA: toda la configuración vive en config.json
+// Signal Directory: datos centrales y componentes para el directorio terminal de Dubicrack Hub.
+// Lee config.json y expone los datos a index.html / youtube/index.html / github/index.html / beacons/index.html
 
 const ICONS = {
   youtube: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12Z"/></svg>',
@@ -21,6 +21,8 @@ async function loadConfig() {
 }
 
 function paintVersion(cfg) {
+  ICONS.discord = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 5.1A16.5 16.5 0 0 0 15.4 4l-.5 1.1a15.5 15.5 0 0 0-5.8 0L8.6 4a16.4 16.4 0 0 0-4.1 1.1C1.9 9 1.2 12.8 1.5 16.5a16.6 16.6 0 0 0 5 2.5l1.2-1.6-1.8-.9.4-.3c3.5 1.6 7.8 1.6 11.4 0l.4.3-1.8.9 1.2 1.6a16.5 16.5 0 0 0 5-2.5c.4-4.3-.7-8-3.1-11.4ZM8.3 14.2c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm7.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg>';
+  ICONS.beacons = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5.5 8.5 12 3l6.5 5.5M4 20h16M7.5 12.5h9M9 16h6"/></svg>';
   document.querySelectorAll('[data-version]').forEach(el => { el.textContent = 'v' + cfg.site.version; });
   document.querySelectorAll('[data-site-name]').forEach(el => { el.textContent = cfg.site.name; });
 }
@@ -158,6 +160,27 @@ function renderVideoCarousel(site) {
   // ocultar flechas si no hace falta scroll (una sola miniatura, por ejemplo)
   const arrows = document.querySelector('[data-car-arrows]');
   if (arrows) arrows.style.display = ids.length > 2 ? '' : 'none';
+}
+
+// Enlaces Beacons: rutas externas verificadas sin datos inventados.
+function renderBeaconsLinks(site) {
+  const listEl = document.querySelector('[data-beacons-links]');
+  if (!listEl) return;
+  const links = Array.isArray(site.links) ? site.links : [];
+  if (!links.length) {
+    listEl.innerHTML = '<p class="status-line">No hay destinos disponibles todavía.</p>';
+    return;
+  }
+  listEl.innerHTML = '';
+  links.forEach(link => {
+    const anchor = document.createElement('a');
+    anchor.className = 'beacons-link';
+    anchor.href = link.url;
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer';
+    anchor.innerHTML = `<span class="beacons-link-icon">${ICONS[link.icon] || '↗'}</span><span><strong>${link.label}</strong><small>${link.desc || 'Abrir destino'}</small></span><b>↗</b>`;
+    listEl.appendChild(anchor);
+  });
 }
 
 // Colores aproximados de GitHub Linguist para las barras de lenguaje

@@ -100,6 +100,7 @@ function renderMainLinks(cfg, listEl, previewEl) {
     frame.hidden = !previewUrl;
     frame.src = previewUrl || 'about:blank';
     empty.hidden = Boolean(previewUrl);
+    empty.classList.toggle('is-profile-card', Boolean(link.profile));
     if (!previewUrl) {
       fallbackIcon.innerHTML = linkBrandMarkup(link);
       if (link.profile) {

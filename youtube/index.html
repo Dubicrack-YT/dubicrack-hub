@@ -1,68 +1,49 @@
-<!DOCTYPE html>
+<!-- Signal Directory: página de canal con la misma jerarquía terminal, cuadrícula y navegación del Hub principal. -->
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="description" content="Canal de YouTube de Dubicrack — videos, metas del canal y contacto.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2310141c%22/%3E%3Ctext x=%2250%22 y=%2266%22 font-size=%2255%22 font-family=%22monospace%22 fill=%22%23ffb000%22 text-anchor=%22middle%22%3E%26gt;_%3C/text%3E%3C/svg%3E">
-<title>Dubicrack — YouTube</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="description" content="Canal de YouTube de Dubicrack: videos, metas y enlaces oficiales.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%230b100f%22/%3E%3Cpath d=%22M22 30l24 20-24 20M57 70h23%22 fill=%22none%22 stroke=%22%23ff6d6d%22 stroke-width=%229%22/%3E%3C/svg%3E">
+  <title>Dubicrack — YouTube</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css?v=1.2.0">
+  <link rel="stylesheet" href="../assets/hub-pages.css?v=1.2.0">
 </head>
-<body>
-
-<div class="crt-overlay"></div>
-
-<div class="wrap">
-  <div class="terminal">
-    <div class="titlebar">
-      <span class="dot red"></span>
-      <span class="dot yellow"></span>
-      <span class="dot green"></span>
-      <span class="path">dubicrack@hub: ~/youtube</span>
-      <span class="version" data-version>v…</span>
-    </div>
-    <div class="screen">
-      <a class="back-link" href="../index.html">← volver al hub</a>
-
-      <div class="profile-card">
-        <span class="icon-lg" data-profile-icon></span>
-        <div>
-          <div class="name" data-profile-name>—</div>
-          <div class="handle" data-profile-handle>—</div>
-        </div>
-      </div>
-
-      <p class="bio-text" data-bio>Cargando…</p>
-      <p class="contact-line" data-contact></p>
-
-      <div class="video-embed" data-video-main></div>
-      <div class="carousel-wrap" data-car-arrows>
-        <button class="carousel-arrow" data-car-prev aria-label="Anterior">‹</button>
-        <div class="video-carousel" data-video-strip></div>
-        <button class="carousel-arrow" data-car-next aria-label="Siguiente">›</button>
-      </div>
-
-      <a class="btn" data-profile-link href="#" target="_blank" rel="noopener noreferrer">
-        Ver canal en YouTube →
-      </a>
-
-      <div class="goals" data-goals></div>
-    </div>
-  </div>
-  <footer class="credit">Dubicrack · hub de enlaces</footer>
-</div>
-
-<script src="../assets/script.js"></script>
-<script>
-  loadConfig()
-    .then(cfg => {
-      paintVersion(cfg);
-      const site = renderProfile(cfg, 'youtube');
-      if (site) renderYoutubeExtras(site);
-    })
-    .catch(err => console.error(err));
-</script>
+<body class="hub-page youtube-page">
+  <div class="crt-overlay" aria-hidden="true"></div>
+  <main class="hub-shell">
+    <header class="command-header">
+      <a class="hub-brand" href="../index.html" aria-label="Volver al Hub"><span class="brand-prompt">&gt;_</span><span>DUBICRACK</span><i></i></a>
+      <nav class="command-nav" aria-label="Navegación de YouTube"><a href="../index.html#directorios">DIRECTORIOS</a><a href="#contenido">CONTENIDO</a></nav>
+      <div class="session-state"><span class="state-pulse"></span><span>CANAL ACTIVO</span><time data-hub-time>--:--:--</time></div>
+    </header>
+    <section class="hub-page-layout">
+      <aside class="page-rail" aria-label="Resumen del canal">
+        <p class="rail-label">01 / CHANNEL</p><div class="rail-glyph" aria-hidden="true"><span>▶</span><i>_</i></div>
+        <div class="rail-copy"><p class="eyebrow">SEÑAL DE VIDEO</p><h2>Historias<br>para hacer<br><em>ruido.</em></h2><p>Videos, metas y accesos directos del canal de DubicrackTK.</p></div>
+        <dl class="rail-stats"><div><dt>canal</dt><dd>youtube</dd></div><div><dt>estado</dt><dd>online</dd></div><div><dt>build</dt><dd data-version>v…</dd></div></dl><a class="rail-jump" href="../index.html#directorios">Volver al directorio <span>↖</span></a>
+      </aside>
+      <section class="page-stage" id="contenido">
+        <div class="stage-index" aria-hidden="true"><span>YOUTUBE / 01</span><span>CHANNEL READY</span></div>
+        <div class="page-copy"><p class="eyebrow">DUBICRACK / BROADCAST SIGNAL</p><h1>Una pantalla.<br>Muchas <em>señales.</em></h1><p>Explora los últimos videos, revisa las metas del canal y abre el perfil oficial en una nueva pestaña.</p></div>
+        <section class="directory-panel page-terminal" aria-label="Contenido de YouTube">
+          <div class="directory-bar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><p><b>dubicrack@youtube</b>:~$ stream --canal</p><span>LIVE FEED</span></div>
+          <div class="page-body">
+            <div class="profile-card"><span class="icon-lg" data-profile-icon></span><div><div class="name" data-profile-name>—</div><div class="handle" data-profile-handle>—</div></div></div>
+            <p class="bio-text" data-bio>Cargando señal…</p><p class="contact-line" data-contact></p>
+            <div class="video-embed" data-video-main></div><div class="carousel-wrap" data-car-arrows><button class="carousel-arrow" data-car-prev aria-label="Video anterior">‹</button><div class="video-carousel" data-video-strip></div><button class="carousel-arrow" data-car-next aria-label="Video siguiente">›</button></div>
+            <a class="btn" data-profile-link href="#" target="_blank" rel="noopener noreferrer">ABRIR CANAL <span>↗</span></a><div class="goals" data-goals></div>
+          </div>
+          <div class="directory-command"><span class="prompt">$</span><span class="cmd">watch</span><span class="cursor" aria-hidden="true"></span></div>
+        </section>
+      </section>
+    </section>
+    <footer class="hub-footer"><p><span>©</span> DUBICRACK HUB · <span data-version>v…</span></p><p>RUTAS ABIERTAS · CONTENIDO REAL CUANDO ESTÁ DISPONIBLE</p><a href="#contenido">ARRIBA <span>↑</span></a></footer>
+  </main>
+  <script src="../assets/script.js?v=1.2.0"></script>
+  <script>loadConfig().then(cfg => { paintVersion(cfg); paintHubStatus(cfg); const site = renderProfile(cfg, 'youtube'); if (site) renderYoutubeExtras(site); }).catch(err => console.error(err));</script>
 </body>
 </html>

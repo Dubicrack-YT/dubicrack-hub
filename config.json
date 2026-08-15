@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "Dubicrack",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "tagline": "hub de enlaces"
   },
   "sites": [
@@ -48,16 +48,16 @@
       "accent": "#a58cff",
       "links": [
         { "label": "YouTube", "desc": "Canal oficial @DubicrackTK", "url": "https://youtube.com/@DubicrackTK", "profile": { "name": "DubicrackTk", "summary": "@DubicrackTK · él/he/his", "detail": "6.59K suscriptores · 88 videos", "bio": "You don't have to be perfect to shine." }, "icon": "youtube" },
-        { "label": "Discord", "desc": "Comunidad de Dubicrack", "url": "http://dsc.gg/dubicrack", "icon": "discord" },
-        { "label": "Twitch", "desc": "Directos de Dubicrack", "url": "https://www.twitch.tv/dubicrack_yt", "preview": "https://player.twitch.tv/?channel=dubicrack_yt&parent=dubicrack-yt.github.io", "icon": "twitch" },
-        { "label": "Kick", "desc": "Canal de Kick", "url": "https://kick.com/dubicracktk", "icon": "kick" },
-        { "label": "TikTok", "desc": "@dubicracktk", "url": "https://www.tiktok.com/@dubicracktk", "icon": "tiktok" },
-        { "label": "Instagram", "desc": "@dubicracktk", "url": "https://www.instagram.com/dubicracktk", "icon": "instagram" },
-        { "label": "Patreon", "desc": "Apoyo a DubicrackYT", "url": "https://www.patreon.com/cw/DubicrackYT", "icon": "patreon" },
-        { "label": "X", "desc": "@dubicrack", "url": "https://x.com/dubicrack", "icon": "x" },
-        { "label": "Roblox", "desc": "Perfil de Roblox", "url": "https://www.roblox.com/es/users/2693136322/profile", "icon": "roblox" },
-        { "label": "Spotify", "desc": "Perfil de Spotify", "url": "https://open.spotify.com/user/plbcoo3r4gi9l1ydkz24uvvuo", "previewNote": "Spotify no permite incrustar perfiles de usuario. Usa ABRIR para ver el perfil público de Dubicrack en Spotify.", "icon": "spotify" },
-        { "label": "Pinterest", "desc": "Perfil de Pinterest", "url": "https://www.pinterest.com/dubalinponce", "icon": "pinterest" }
+        { "label": "Discord", "desc": "Comunidad de Dubicrack", "url": "http://dsc.gg/dubicrack", "profile": { "name": "Dubicrack", "summary": "Comunidad de Discord", "detail": "Invitación pública", "bio": "Conecta con la comunidad de Dubicrack." }, "icon": "discord" },
+        { "label": "Twitch", "desc": "Directos de Dubicrack", "url": "https://www.twitch.tv/dubicrack_yt", "profile": { "name": "dubicrack_yt", "summary": "Canal de Twitch", "detail": "8 seguidores", "bio": "Directos y chat de la comunidad." }, "icon": "twitch" },
+        { "label": "Kick", "desc": "Canal de Kick", "url": "https://kick.com/dubicracktk", "profile": { "name": "DubicrackTK", "summary": "@dubicracktk", "detail": "Canal de Kick", "bio": "Canal público de directos." }, "icon": "kick" },
+        { "label": "TikTok", "desc": "@dubicracktk", "url": "https://www.tiktok.com/@dubicracktk", "profile": { "name": "DubicrackTK", "summary": "@dubicracktk", "detail": "Perfil de TikTok", "bio": "Contenido de Dubicrack en TikTok." }, "icon": "tiktok" },
+        { "label": "Instagram", "desc": "@dubicracktk", "url": "https://www.instagram.com/dubicracktk", "profile": { "name": "DubicrackTK", "summary": "@dubicracktk", "detail": "33 seguidores · 9 seguidos", "bio": "Astronomía, videojuegos y amistades reales." }, "icon": "instagram" },
+        { "label": "Patreon", "desc": "Apoyo a DubicrackYT", "url": "https://www.patreon.com/cw/DubicrackYT", "profile": { "name": "DubicrackYT", "summary": "Página de apoyo", "detail": "Destino público", "bio": "Espacio de apoyo asociado a Dubicrack." }, "icon": "patreon" },
+        { "label": "X", "desc": "@dubicrack", "url": "https://x.com/dubicrack", "profile": { "name": "dubicrack", "summary": "@dubicrack", "detail": "Perfil de X", "bio": "Disponibilidad del destino sujeta a la plataforma." }, "icon": "x" },
+        { "label": "Roblox", "desc": "Perfil de Roblox", "url": "https://www.roblox.com/es/users/2693136322/profile", "profile": { "name": "YoSoyDubiTK", "summary": "@YoSoyDubiTK", "detail": "4.3K seguidores · 194 amigos", "bio": "Perfil público de Roblox." }, "icon": "roblox" },
+        { "label": "Spotify", "desc": "Perfil de Spotify", "url": "https://open.spotify.com/user/plbcoo3r4gi9l1ydkz24uvvuo", "profile": { "name": "Dubicrack", "summary": "Perfil de Spotify", "detail": "Cuenta pública", "bio": "Abre el perfil directamente en Spotify." }, "icon": "spotify" },
+        { "label": "Pinterest", "desc": "Perfil de Pinterest", "url": "https://www.pinterest.com/dubalinponce", "profile": { "name": "Dubicrack", "summary": "@dubalinponce", "detail": "Perfil de Pinterest", "bio": "Tableros y pines de Dubicrack." }, "icon": "pinterest" }
       ]
     }
   ]

@@ -17,7 +17,7 @@
 <main class="hub-shell" id="inicio">
   <header class="command-header">
     <a class="hub-brand" href="#inicio" aria-label="Dubicrack Hub, ir al inicio"><span class="brand-prompt">&gt;_</span><span>DUBICRACK</span><i></i></a>
-    <nav class="command-nav" aria-label="Navegación principal"><a href="#rutas">RUTAS</a><a href="#vista">VISTA URL</a></nav>
+    <nav class="command-nav" aria-label="Navegación principal"><a href="#rutas">RUTAS</a><a href="#vista">PERFIL</a></nav>
     <div class="session-state"><span class="state-pulse"></span><span>RED ACTIVA</span><time data-hub-time>--:--:--</time></div>
   </header>
 
@@ -35,24 +35,24 @@
       <div class="stage-copy">
         <p class="eyebrow">DUBICRACK / LINK CONSOLE</p>
         <h1 id="hub-title">Una red.<br>Todas las<br><em>rutas.</em></h1>
-        <p>Selecciona una plataforma para cargar una vista previa por URL o abre su destino oficial directamente.</p>
+        <p>Selecciona una plataforma para consultar su ficha pública o abre su destino oficial directamente.</p>
       </div>
 
       <div class="links-workbench">
         <section class="link-terminal" aria-label="Rutas públicas de Dubicrack">
           <div class="directory-bar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><p><b>dubicrack@hub</b>:~$ routes --all</p><span>11 LIVE LINKS</span></div>
           <div class="link-grid" id="main-links" aria-live="polite"><p class="directory-loading"><span></span> Conectando rutas…</p></div>
-          <div class="directory-command"><span class="prompt">$</span><span class="cmd">select --preview</span><span class="cursor" aria-hidden="true"></span></div>
+          <div class="directory-command"><span class="prompt">$</span><span class="cmd">select --profile</span><span class="cursor" aria-hidden="true"></span></div>
         </section>
 
         <section class="url-preview" id="vista" aria-label="Vista previa de URL">
-          <div class="preview-head"><span class="preview-status"><i></i> URL PREVIEW</span><span data-preview-label>Selecciona una ruta</span></div>
+          <div class="preview-head"><span class="preview-status"><i></i> PROFILE CARD</span><span data-preview-label>Selecciona un perfil</span></div>
           <div class="preview-browser">
             <div class="preview-browser-bar"><span class="preview-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="preview-url" data-preview-url>about:blank</span></div>
             <iframe data-preview-frame title="Vista previa de enlace seleccionado" src="about:blank" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" hidden></iframe>
-            <div class="preview-empty" data-preview-empty><span data-preview-icon>↗</span><strong data-preview-title>Vista por URL</strong><p data-preview-copy>Selecciona una ruta para intentar visualizar su página aquí.</p><small data-preview-detail hidden></small></div>
+            <div class="preview-empty" data-preview-empty><span data-preview-icon>↗</span><strong data-preview-title>Ficha de perfil</strong><p data-preview-copy>Selecciona una plataforma para ver su identidad pública aquí.</p><small data-preview-detail hidden></small></div>
           </div>
-          <div class="preview-foot"><p>Algunas plataformas bloquean la incrustación; en ese caso, usa <b>ABRIR</b> para ir al destino oficial.</p><a class="preview-open" data-preview-open href="#" target="_blank" rel="noopener noreferrer" hidden>ABRIR DESTINO <span>↗</span></a></div>
+          <div class="preview-foot"><p>La ficha reúne la identidad pública disponible. Usa <b>ABRIR</b> para visitar el destino oficial.</p><a class="preview-open" data-preview-open href="#" target="_blank" rel="noopener noreferrer" hidden>ABRIR DESTINO <span>↗</span></a></div>
         </section>
       </div>
     </section>

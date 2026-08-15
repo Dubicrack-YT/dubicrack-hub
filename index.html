@@ -1,78 +1,73 @@
+<!-- Signal Links: portada centrada en las rutas públicas de Dubicrack, con terminal, iconos de marca y vista previa por URL. -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="Dubicrack Hub: directorio de señales para YouTube, GitHub y proyectos.">
+<meta name="description" content="Dubicrack Hub: todos los enlaces públicos de Dubicrack en un solo panel de señales.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2214%22 fill=%22%230b100f%22/%3E%3Cpath d=%22M21 30l22 20-22 20M53 70h26%22 fill=%22none%22 stroke=%22%239cff6d%22 stroke-width=%229%22 stroke-linecap=%22square%22/%3E%3C/svg%3E">
-<title>Dubicrack — Hub</title>
+<title>Dubicrack — Enlaces</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css?v=1.2.0">
+<link rel="stylesheet" href="assets/link-dashboard.css?v=1.4.0">
 </head>
-<body class="hub-root">
-
+<body class="hub-root hub-links-root">
 <div class="crt-overlay" aria-hidden="true"></div>
-
 <main class="hub-shell" id="inicio">
   <header class="command-header">
     <a class="hub-brand" href="#inicio" aria-label="Dubicrack Hub, ir al inicio"><span class="brand-prompt">&gt;_</span><span>DUBICRACK</span><i></i></a>
-    <nav class="command-nav" aria-label="Navegación principal"><a href="#directorios">DIRECTORIOS</a><a href="#estado">ESTADO</a></nav>
-    <div class="session-state"><span class="state-pulse"></span><span>SESIÓN ACTIVA</span><time data-hub-time>--:--:--</time></div>
+    <nav class="command-nav" aria-label="Navegación principal"><a href="#rutas">RUTAS</a><a href="#vista">VISTA URL</a></nav>
+    <div class="session-state"><span class="state-pulse"></span><span>RED ACTIVA</span><time data-hub-time>--:--:--</time></div>
   </header>
 
-  <section class="hub-grid" aria-labelledby="hub-title">
-    <aside class="session-rail" id="estado" aria-label="Estado del directorio">
-      <p class="rail-label">00 / SESSION</p>
-      <div class="rail-glyph" aria-hidden="true"><span>▣</span><i>_</i></div>
-      <div class="rail-copy"><p class="eyebrow">DIRECTORIO DISPONIBLE</p><h2>Una ruta<br>para cada<br><em>señal.</em></h2><p>Canales, repositorios y próximos proyectos organizados en una única sesión.</p></div>
-      <dl class="rail-stats"><div><dt>canales</dt><dd data-channel-count>--</dd></div><div><dt>estado</dt><dd>online</dd></div><div><dt>build</dt><dd data-version>v…</dd></div></dl>
-      <a class="rail-jump" href="#directorios">Consultar directorios <span>↘</span></a>
+  <section class="links-layout" aria-labelledby="hub-title">
+    <aside class="session-rail links-rail" id="estado" aria-label="Estado de la red">
+      <p class="rail-label">00 / NETWORK</p>
+      <div class="rail-glyph" aria-hidden="true"><span>⌁</span><i>_</i></div>
+      <div class="rail-copy"><p class="eyebrow">RED DE DUBICRACK</p><h2>Todo<br>en una<br><em>señal.</em></h2><p>Canales, comunidad y perfiles oficiales conectados desde un único panel.</p></div>
+      <dl class="rail-stats"><div><dt>rutas</dt><dd data-main-link-count>--</dd></div><div><dt>estado</dt><dd>online</dd></div><div><dt>build</dt><dd data-version>v…</dd></div></dl>
+      <a class="rail-jump" href="#rutas">Explorar red <span>↘</span></a>
     </aside>
 
-    <div class="directory-stage">
-      <div class="stage-index" aria-hidden="true"><span>HUB / 01</span><span data-route-status>ROUTE READY</span></div>
+    <section class="links-stage" id="rutas">
+      <div class="stage-index" aria-hidden="true"><span>HUB / 01</span><span>DIRECT NETWORK</span></div>
       <div class="stage-copy">
-        <p class="eyebrow">DUBICRACK / SIGNAL DIRECTORY</p>
-        <h1 id="hub-title">Todo lo que<br>hace <em>ruido</em>,<br>en una ruta.</h1>
-        <p>Selecciona un directorio para abrir el canal, explorar los repositorios o seguir la próxima señal.</p>
+        <p class="eyebrow">DUBICRACK / LINK CONSOLE</p>
+        <h1 id="hub-title">Una red.<br>Todas las<br><em>rutas.</em></h1>
+        <p>Selecciona una plataforma para cargar una vista previa por URL o abre su destino oficial directamente.</p>
       </div>
 
-      <section class="directory-panel" id="directorios" aria-label="Directorios disponibles">
-        <div class="directory-bar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><p><b>dubicrack@hub</b>:~$ ls --destinos</p><span>LIVE INDEX</span></div>
-        <div class="listing" id="listing" aria-live="polite">
-          <p class="directory-loading"><span></span> Inicializando directorios…</p>
-        </div>
-        <div class="directory-command"><span class="prompt">$</span><span class="cmd">await</span><span class="cursor" aria-hidden="true"></span></div>
-      </section>
-    </div>
+      <div class="links-workbench">
+        <section class="link-terminal" aria-label="Rutas públicas de Dubicrack">
+          <div class="directory-bar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><p><b>dubicrack@hub</b>:~$ routes --all</p><span>11 LIVE LINKS</span></div>
+          <div class="link-grid" id="main-links" aria-live="polite"><p class="directory-loading"><span></span> Conectando rutas…</p></div>
+          <div class="directory-command"><span class="prompt">$</span><span class="cmd">select --preview</span><span class="cursor" aria-hidden="true"></span></div>
+        </section>
+
+        <section class="url-preview" id="vista" aria-label="Vista previa de URL">
+          <div class="preview-head"><span class="preview-status"><i></i> URL PREVIEW</span><span data-preview-label>Selecciona una ruta</span></div>
+          <div class="preview-browser">
+            <div class="preview-browser-bar"><span class="preview-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="preview-url" data-preview-url>about:blank</span></div>
+            <iframe data-preview-frame title="Vista previa de enlace seleccionado" src="about:blank" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <div class="preview-empty" data-preview-empty><span>↗</span><strong>Vista por URL</strong><p>Selecciona una ruta para intentar visualizar su página aquí.</p></div>
+          </div>
+          <div class="preview-foot"><p>Algunas plataformas bloquean la incrustación; en ese caso, usa <b>ABRIR</b> para ir al destino oficial.</p><a class="preview-open" data-preview-open href="#" target="_blank" rel="noopener noreferrer" hidden>ABRIR DESTINO <span>↗</span></a></div>
+        </section>
+      </div>
+    </section>
   </section>
-
-  <footer class="hub-footer"><p><span>©</span> DUBICRACK HUB · <span data-version>v…</span></p><p>RUTAS ABIERTAS · CONTENIDO REAL CUANDO ESTÁ DISPONIBLE</p><a href="#inicio">INICIO <span>↗</span></a></footer>
+  <footer class="hub-footer"><p><span>©</span> DUBICRACK HUB · <span data-version>v…</span></p><p>RUTAS DIRECTAS · VISTAS POR URL CUANDO ESTÁN DISPONIBLES</p><a href="#inicio">INICIO <span>↑</span></a></footer>
 </main>
-
-<script src="assets/script.js?v=1.3.0"></script>
+<script src="assets/script.js?v=1.4.0"></script>
 <script>
-  if (typeof paintHubStatus !== 'function') {
-    function paintHubStatus(cfg) {
-      const count = Array.isArray(cfg.sites) ? cfg.sites.length : 0;
-      document.querySelectorAll('[data-channel-count]').forEach(el => { el.textContent = String(count).padStart(2, '0'); });
-      const clock = document.querySelector('[data-hub-time]');
-      if (!clock) return;
-      const tick = () => { clock.textContent = new Intl.DateTimeFormat('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(new Date()); };
-      tick();
-      window.setInterval(tick, 1000);
-    }
-  }
-  loadConfig()
-    .then(cfg => {
-      paintVersion(cfg);
-      paintHubStatus(cfg);
-      renderListing(cfg, document.getElementById('listing'));
-    })
-    .catch(err => {
-      document.getElementById('listing').innerHTML = '<p class="directory-loading error"><span></span> Error de directorio: ' + err.message + '</p>';
-    });
+  loadConfig().then(cfg => {
+    paintVersion(cfg);
+    paintHubStatus(cfg);
+    renderMainLinks(cfg, document.getElementById('main-links'), document.getElementById('vista'));
+  }).catch(err => {
+    document.getElementById('main-links').innerHTML = '<p class="directory-loading error"><span></span> Error de red: ' + err.message + '</p>';
+  });
 </script>
 </body>
 </html>

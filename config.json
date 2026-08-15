@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "Dubicrack",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "tagline": "hub de enlaces"
   },
   "sites": [
@@ -20,20 +20,13 @@
         "https://youtu.be/V-ulPUFnaaI?si=7VEL-4RQyqNLFmmM"
       ],
       "goals": [
-        { "count": 100, "achieved": true },
-        { "count": 250, "achieved": true },
-        { "count": 500, "achieved": true },
-        { "count": 1000, "achieved": true },
-        { "count": 2500, "achieved": true },
-        { "count": 5000, "achieved": true },
-        { "count": 10000, "achieved": false },
-        { "count": 25000, "achieved": false },
-        { "count": 50000, "achieved": false },
-        { "count": 100000, "achieved": false },
-        { "count": 250000, "achieved": false },
-        { "count": 500000, "achieved": false },
-        { "count": 1000000, "achieved": false },
-        { "count": 2000000, "achieved": false }
+        { "count": 100, "achieved": true }, { "count": 250, "achieved": true },
+        { "count": 500, "achieved": true }, { "count": 1000, "achieved": true },
+        { "count": 2500, "achieved": true }, { "count": 5000, "achieved": true },
+        { "count": 10000, "achieved": false }, { "count": 25000, "achieved": false },
+        { "count": 50000, "achieved": false }, { "count": 100000, "achieved": false },
+        { "count": 250000, "achieved": false }, { "count": 500000, "achieved": false },
+        { "count": 1000000, "achieved": false }, { "count": 2000000, "achieved": false }
       ]
     },
     {
@@ -56,15 +49,15 @@
       "links": [
         { "label": "YouTube", "desc": "Canal oficial @DubicrackTK", "url": "https://youtube.com/@DubicrackTK", "icon": "youtube" },
         { "label": "Discord", "desc": "Comunidad de Dubicrack", "url": "http://dsc.gg/dubicrack", "icon": "discord" },
-        { "label": "Twitch", "desc": "Directos de Dubicrack", "url": "https://www.twitch.tv/dubicrack_yt", "icon": "link" },
-        { "label": "Kick", "desc": "Canal de Kick", "url": "https://kick.com/dubicracktk", "icon": "link" },
-        { "label": "TikTok", "desc": "@dubicracktk", "url": "https://www.tiktok.com/@dubicracktk", "icon": "link" },
-        { "label": "Instagram", "desc": "@dubicracktk", "url": "https://www.instagram.com/dubicracktk", "icon": "link" },
-        { "label": "Patreon", "desc": "Apoyo a DubicrackYT", "url": "https://www.patreon.com/cw/DubicrackYT", "icon": "link" },
-        { "label": "X", "desc": "@dubicrack", "url": "https://x.com/dubicrack", "icon": "link" },
-        { "label": "Roblox", "desc": "Perfil de Roblox", "url": "https://www.roblox.com/es/users/2693136322/profile", "icon": "link" },
-        { "label": "Spotify", "desc": "Perfil de Spotify", "url": "https://open.spotify.com/user/plbcoo3r4gi9l1ydkz24uvvuo", "icon": "link" },
-        { "label": "Pinterest", "desc": "Perfil de Pinterest", "url": "https://www.pinterest.com/dubalinponce", "icon": "link" }
+        { "label": "Twitch", "desc": "Directos de Dubicrack", "url": "https://www.twitch.tv/dubicrack_yt", "icon": "twitch" },
+        { "label": "Kick", "desc": "Canal de Kick", "url": "https://kick.com/dubicracktk", "icon": "kick" },
+        { "label": "TikTok", "desc": "@dubicracktk", "url": "https://www.tiktok.com/@dubicracktk", "icon": "tiktok" },
+        { "label": "Instagram", "desc": "@dubicracktk", "url": "https://www.instagram.com/dubicracktk", "icon": "instagram" },
+        { "label": "Patreon", "desc": "Apoyo a DubicrackYT", "url": "https://www.patreon.com/cw/DubicrackYT", "icon": "patreon" },
+        { "label": "X", "desc": "@dubicrack", "url": "https://x.com/dubicrack", "icon": "x" },
+        { "label": "Roblox", "desc": "Perfil de Roblox", "url": "https://www.roblox.com/es/users/2693136322/profile", "icon": "roblox" },
+        { "label": "Spotify", "desc": "Perfil de Spotify", "url": "https://open.spotify.com/user/plbcoo3r4gi9l1ydkz24uvvuo", "icon": "spotify" },
+        { "label": "Pinterest", "desc": "Perfil de Pinterest", "url": "https://www.pinterest.com/dubalinponce", "icon": "pinterest" }
       ]
     }
   ]

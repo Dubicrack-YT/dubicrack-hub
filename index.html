@@ -2,53 +2,65 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="Hub de enlaces de Dubicrack: canal de YouTube, GitHub y más.">
+<meta name="description" content="Dubicrack Hub: directorio de señales para YouTube, GitHub y proyectos.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2310141c%22/%3E%3Ctext x=%2250%22 y=%2266%22 font-size=%2255%22 font-family=%22monospace%22 fill=%22%23ffb000%22 text-anchor=%22middle%22%3E%26gt;_%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2214%22 fill=%22%230b100f%22/%3E%3Cpath d=%22M21 30l22 20-22 20M53 70h26%22 fill=%22none%22 stroke=%22%239cff6d%22 stroke-width=%229%22 stroke-linecap=%22square%22/%3E%3C/svg%3E">
 <title>Dubicrack — Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body class="hub-root">
 
-<div class="crt-overlay"></div>
+<div class="crt-overlay" aria-hidden="true"></div>
 
-<div class="wrap">
-  <div class="terminal">
-    <div class="titlebar">
-      <span class="dot red"></span>
-      <span class="dot yellow"></span>
-      <span class="dot green"></span>
-      <span class="path">dubicrack@hub: ~</span>
-      <span class="version" data-version>v…</span>
-    </div>
-    <div class="screen">
-      <pre class="ascii-title">D U B I C R A C K</pre>
-      <p class="subtitle">// selecciona una carpeta para continuar</p>
+<main class="hub-shell" id="inicio">
+  <header class="command-header">
+    <a class="hub-brand" href="#inicio" aria-label="Dubicrack Hub, ir al inicio"><span class="brand-prompt">&gt;_</span><span>DUBICRACK</span><i></i></a>
+    <nav class="command-nav" aria-label="Navegación principal"><a href="#directorios">DIRECTORIOS</a><a href="#estado">ESTADO</a></nav>
+    <div class="session-state"><span class="state-pulse"></span><span>SESIÓN ACTIVA</span><time data-hub-time>--:--:--</time></div>
+  </header>
 
-      <p class="line"><span class="prompt">$</span> <span class="cmd">ls</span> -la<span class="cursor"></span></p>
+  <section class="hub-grid" aria-labelledby="hub-title">
+    <aside class="session-rail" id="estado" aria-label="Estado del directorio">
+      <p class="rail-label">00 / SESSION</p>
+      <div class="rail-glyph" aria-hidden="true"><span>▣</span><i>_</i></div>
+      <div class="rail-copy"><p class="eyebrow">DIRECTORIO DISPONIBLE</p><h2>Una ruta<br>para cada<br><em>señal.</em></h2><p>Canales, repositorios y próximos proyectos organizados en una única sesión.</p></div>
+      <dl class="rail-stats"><div><dt>canales</dt><dd data-channel-count>--</dd></div><div><dt>estado</dt><dd>online</dd></div><div><dt>build</dt><dd data-version>v…</dd></div></dl>
+      <a class="rail-jump" href="#directorios">Consultar directorios <span>↘</span></a>
+    </aside>
 
-      <div class="listing" id="listing">
-        <!-- se genera desde config.json -->
+    <div class="directory-stage">
+      <div class="stage-index" aria-hidden="true"><span>HUB / 01</span><span data-route-status>ROUTE READY</span></div>
+      <div class="stage-copy">
+        <p class="eyebrow">DUBICRACK / SIGNAL DIRECTORY</p>
+        <h1 id="hub-title">Todo lo que<br>hace <em>ruido</em>,<br>en una ruta.</h1>
+        <p>Selecciona un directorio para abrir el canal, explorar los repositorios o seguir la próxima señal.</p>
       </div>
 
-      <p class="footer-line"><span class="prompt">$</span> _</p>
+      <section class="directory-panel" id="directorios" aria-label="Directorios disponibles">
+        <div class="directory-bar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><p><b>dubicrack@hub</b>:~$ ls --destinos</p><span>LIVE INDEX</span></div>
+        <div class="listing" id="listing" aria-live="polite">
+          <p class="directory-loading"><span></span> Inicializando directorios…</p>
+        </div>
+        <div class="directory-command"><span class="prompt">$</span><span class="cmd">await</span><span class="cursor" aria-hidden="true"></span></div>
+      </section>
     </div>
-  </div>
-  <footer class="credit">Dubicrack · hub de enlaces</footer>
-</div>
+  </section>
+
+  <footer class="hub-footer"><p><span>©</span> DUBICRACK HUB · <span data-version>v…</span></p><p>RUTAS ABIERTAS · CONTENIDO REAL CUANDO ESTÁ DISPONIBLE</p><a href="#inicio">INICIO <span>↗</span></a></footer>
+</main>
 
 <script src="assets/script.js"></script>
 <script>
   loadConfig()
     .then(cfg => {
       paintVersion(cfg);
+      paintHubStatus(cfg);
       renderListing(cfg, document.getElementById('listing'));
     })
     .catch(err => {
-      document.getElementById('listing').innerHTML =
-        '<p style="padding:16px;color:var(--text-dim);font-size:12px;">Error cargando config.json: ' + err.message + '</p>';
+      document.getElementById('listing').innerHTML = '<p class="directory-loading error"><span></span> Error de directorio: ' + err.message + '</p>';
     });
 </script>
 </body>

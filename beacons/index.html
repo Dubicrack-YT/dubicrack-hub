@@ -1,0 +1,48 @@
+<!-- Signal Directory: página de enlaces verificados de Beacons con la misma jerarquía terminal y navegación del Hub principal. -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Enlaces públicos de Dubicrack verificados desde su perfil Beacons.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%230b100f%22/%3E%3Cpath d=%22M22 30l24 20-24 20M57 70h23%22 fill=%22none%22 stroke=%22%23a58cff%22 stroke-width=%229%22/%3E%3C/svg%3E">
+  <title>Dubicrack — Beacons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css?v=1.2.0">
+  <link rel="stylesheet" href="../assets/hub-pages.css?v=1.2.0">
+</head>
+<body class="hub-page beacons-page">
+  <div class="crt-overlay" aria-hidden="true"></div>
+  <main class="hub-shell">
+    <header class="command-header">
+      <a class="hub-brand" href="../index.html" aria-label="Volver al Hub"><span class="brand-prompt">&gt;_</span><span>DUBICRACK</span><i></i></a>
+      <nav class="command-nav" aria-label="Navegación de enlaces"><a href="../index.html#directorios">DIRECTORIOS</a><a href="#enlaces">ENLACES</a></nav>
+      <div class="session-state"><span class="state-pulse"></span><span>ENLACES ACTIVOS</span><time data-hub-time>--:--:--</time></div>
+    </header>
+    <section class="hub-page-layout">
+      <aside class="page-rail" aria-label="Resumen de enlaces">
+        <p class="rail-label">03 / LINKS</p><div class="rail-glyph" aria-hidden="true"><span>⌁</span><i>_</i></div>
+        <div class="rail-copy"><p class="eyebrow">DIRECCIONES PÚBLICAS</p><h2>Una ruta<br>para cada<br><em>encuentro.</em></h2><p>Los destinos confirmados desde el perfil público de Beacons de Dubicrack.</p></div>
+        <dl class="rail-stats"><div><dt>fuente</dt><dd>beacons</dd></div><div><dt>estado</dt><dd>online</dd></div><div><dt>build</dt><dd data-version>v…</dd></div></dl><a class="rail-jump" href="../index.html#directorios">Volver al directorio <span>↖</span></a>
+      </aside>
+      <section class="page-stage" id="enlaces">
+        <div class="stage-index" aria-hidden="true"><span>BEACONS / 03</span><span>LINKS READY</span></div>
+        <div class="page-copy"><p class="eyebrow">DUBICRACK / PUBLIC LINKS</p><h1>Encuentra<br>la siguiente<br><em>señal.</em></h1><p>Accesos públicos centralizados desde Beacons, sin duplicar perfiles ni crear enlaces no verificados.</p></div>
+        <section class="directory-panel page-terminal" aria-label="Enlaces de Beacons">
+          <div class="directory-bar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><p><b>dubicrack@beacons</b>:~$ open --links</p><span>PUBLIC ROUTES</span></div>
+          <div class="page-body">
+            <div class="profile-card"><span class="icon-lg" data-profile-icon></span><div><div class="name" data-profile-name>—</div><div class="handle" data-profile-handle>—</div></div></div>
+            <div class="beacons-intro"><p><strong>RUTAS VERIFICADAS</strong>Estos accesos corresponden a los destinos visibles desde el perfil público de Dubicrack.</p><a class="btn" data-profile-link href="#" target="_blank" rel="noopener noreferrer">ABRIR BEACONS <span>↗</span></a></div>
+            <div class="beacons-link-list" data-beacons-links></div><p class="beacons-source">Fuente: <a href="https://beacons.ai/dubicracktk" target="_blank" rel="noopener noreferrer">beacons.ai/dubicracktk</a></p>
+          </div>
+          <div class="directory-command"><span class="prompt">$</span><span class="cmd">connect</span><span class="cursor" aria-hidden="true"></span></div>
+        </section>
+      </section>
+    </section>
+    <footer class="hub-footer"><p><span>©</span> DUBICRACK HUB · <span data-version>v…</span></p><p>RUTAS ABIERTAS · CONTENIDO REAL CUANDO ESTÁ DISPONIBLE</p><a href="#enlaces">ARRIBA <span>↑</span></a></footer>
+  </main>
+  <script src="../assets/script.js?v=1.2.0"></script>
+  <script>loadConfig().then(cfg => { paintVersion(cfg); paintHubStatus(cfg); const site = renderProfile(cfg, 'beacons'); if (site) renderBeaconsLinks(site); }).catch(err => console.error(err));</script>
+</body>
+</html>

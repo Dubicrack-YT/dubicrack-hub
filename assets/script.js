@@ -1,5 +1,5 @@
-// Diseño Directorio de señales: mantiene datos configurables y presenta rutas de forma clara, sin simular administración.
-// Signal Directory: datos centrales y componentes para el directorio terminal de Dubicrack Hub.
+// Signal Links: datos centrales y componentes para la red de enlaces terminal de Dubicrack Hub.
+// Mantiene rutas configurables, iconos de marca y vistas previas por URL sin simular datos privados.
 // Lee config.json y expone los datos a index.html / youtube/index.html / github/index.html / beacons/index.html
 
 const ICONS = {
@@ -13,7 +13,7 @@ async function loadConfig() {
   // funciona tanto desde la raíz (index.html) como desde subcarpetas (youtube/, github/)
   for (const p of ['config.json', '../config.json']) {
     try {
-      const res = await fetch(p);
+      const res = await fetch(p, { cache: 'no-store' });
       if (res.ok) return res.json();
     } catch (_) { /* intenta la siguiente ruta */ }
   }
@@ -58,6 +58,73 @@ function renderListing(cfg, containerEl) {
       <span class="arrow">↗ abrir</span>
     `;
     containerEl.appendChild(a);
+  });
+}
+
+// Portada Signal Links: cada tarjeta selecciona una URL para su vista previa y mantiene la salida directa disponible.
+const LINK_BRANDS = {
+  youtube: { slug: 'youtube', color: 'FF0000' }, discord: { slug: 'discord', color: '5865F2' },
+  twitch: { slug: 'twitch', color: '9146FF' }, kick: { slug: 'kick', color: '53FC18' },
+  tiktok: { slug: 'tiktok', color: 'FE2C55' }, instagram: { slug: 'instagram', color: 'E4405F' },
+  patreon: { slug: 'patreon', color: 'FF424D' }, x: { slug: 'x', color: 'FFFFFF' },
+  roblox: { slug: 'roblox', color: 'E2231A' }, spotify: { slug: 'spotify', color: '1DB954' },
+  pinterest: { slug: 'pinterest', color: 'BD081C' }
+};
+
+function linkBrandMarkup(link) {
+  const brand = LINK_BRANDS[link.icon];
+  if (brand) return `<img src="https://cdn.simpleicons.org/${brand.slug}/${brand.color}" alt="" width="16" height="16">`;
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.1.1l2-2A5 5 0 0 0 12 4l-1.1 1.1"/><path d="M14 11a5 5 0 0 0-7.1-.1l-2 2A5 5 0 0 0 12 20l1.1-1.1"/></svg>';
+}
+
+function renderMainLinks(cfg, listEl, previewEl) {
+  if (!listEl || !previewEl) return;
+  const linkSite = cfg.sites.find(site => site.id === 'beacons');
+  const links = Array.isArray(linkSite?.links) ? linkSite.links : [];
+  const frame = previewEl.querySelector('[data-preview-frame]');
+  const empty = previewEl.querySelector('[data-preview-empty]');
+  const urlEl = previewEl.querySelector('[data-preview-url]');
+  const labelEl = previewEl.querySelector('[data-preview-label]');
+  const openEl = previewEl.querySelector('[data-preview-open]');
+  const countEl = document.querySelector('[data-main-link-count]');
+  if (countEl) countEl.textContent = String(links.length).padStart(2, '0');
+
+  const selectLink = (link, tile) => {
+    listEl.querySelectorAll('.link-tile').forEach(item => item.classList.remove('is-selected'));
+    tile.classList.add('is-selected');
+    frame.src = link.url;
+    empty.hidden = true;
+    urlEl.textContent = link.url.replace(/^https?:\/\//, '');
+    labelEl.textContent = link.label;
+    openEl.href = link.url;
+    openEl.hidden = false;
+  };
+
+  listEl.innerHTML = '';
+  links.forEach((link, index) => {
+    const brand = LINK_BRANDS[link.icon];
+    const tile = document.createElement('article');
+    tile.className = 'link-tile';
+    tile.style.setProperty('--link-brand', brand ? `#${brand.color}` : '#9cff6d');
+
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'link-preview-trigger';
+    trigger.setAttribute('aria-label', `Previsualizar ${link.label}`);
+    trigger.innerHTML = `<span class="link-brand-icon">${linkBrandMarkup(link)}</span><span class="link-tile-copy"><strong>${link.label}</strong><small>${link.desc || 'Destino oficial'}</small></span>`;
+    trigger.addEventListener('click', () => selectLink(link, tile));
+
+    const open = document.createElement('a');
+    open.className = 'link-open';
+    open.href = link.url;
+    open.target = '_blank';
+    open.rel = 'noopener noreferrer';
+    open.setAttribute('aria-label', `Abrir ${link.label}`);
+    open.textContent = '↗';
+
+    tile.append(trigger, open);
+    listEl.appendChild(tile);
+    if (index === 0) selectLink(link, tile);
   });
 }
 

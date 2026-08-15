@@ -89,6 +89,7 @@ function renderMainLinks(cfg, listEl, previewEl) {
   const fallbackIcon = previewEl.querySelector('[data-preview-icon]');
   const fallbackTitle = previewEl.querySelector('[data-preview-title]');
   const fallbackCopy = previewEl.querySelector('[data-preview-copy]');
+  const fallbackDetail = previewEl.querySelector('[data-preview-detail]');
   const countEl = document.querySelector('[data-main-link-count]');
   if (countEl) countEl.textContent = String(links.length).padStart(2, '0');
 
@@ -101,8 +102,17 @@ function renderMainLinks(cfg, listEl, previewEl) {
     empty.hidden = Boolean(previewUrl);
     if (!previewUrl) {
       fallbackIcon.innerHTML = linkBrandMarkup(link);
-      fallbackTitle.textContent = `${link.label}: vista por URL`;
-      fallbackCopy.textContent = 'Esta plataforma no permite una vista incrustada. Usa ABRIR para ir directamente a su sitio oficial.';
+      if (link.profile) {
+        fallbackTitle.textContent = link.profile.name || link.label;
+        fallbackCopy.textContent = link.profile.summary || link.desc || 'Perfil público';
+        fallbackDetail.textContent = [link.profile.detail, link.profile.bio].filter(Boolean).join(' · ');
+        fallbackDetail.hidden = !fallbackDetail.textContent;
+      } else {
+        fallbackTitle.textContent = `${link.label}: vista por URL`;
+        fallbackCopy.textContent = link.previewNote || 'Esta plataforma no permite una vista incrustada. Usa ABRIR para ir directamente a su sitio oficial.';
+        fallbackDetail.textContent = '';
+        fallbackDetail.hidden = true;
+      }
     }
     urlEl.textContent = link.url.replace(/^https?:\/\//, '');
     labelEl.textContent = link.label;
